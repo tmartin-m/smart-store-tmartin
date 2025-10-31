@@ -38,6 +38,7 @@ Repository = "https://github.com/tmartin-m/smart-store-tmartin"
 
 [project.optional-dependencies]
 dev = [
+  "pre-commit", # code quality checks before commits
   "pytest", # run some tests automatically
   "pytest-cov", # coverage report for more visibility
 ]
