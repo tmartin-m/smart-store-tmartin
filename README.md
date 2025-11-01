@@ -2,7 +2,7 @@
 
 > Use this repo to start a professional Python project.
 
-- Additional information: <https://github.com/tmartin-m/smart-store-tmartin>
+- Additional information: <https://github.com/denisecase/pro-analytics-02
 - Project organization: [STRUCTURE](./STRUCTURE.md)
 - Build professional skills:
   - **Environment Management**: Every project in isolation
@@ -10,6 +10,53 @@
   - **Documentation**: Use modern project documentation tools
   - **Testing**: Prove your code works
   - **Version Control**: Collaborate professionally
+
+---
+
+## Module 1 - BI Python (Get Started, add Raw Data)
+
+Goals:
+1. Set up a machine for professional BI work.
+2. Set up a project (a repository) that we will use over time
+3. Use the daily workflow to update our copy of the template and add some raw data files.
+
+[Drivers](https://github.com/denisecase/smart-sales-analysis-goals)
+
+[Basic Files and Folders](https://github.com/denisecase/applied-computer-organization)
+
+<details>
+<summary>Click to see Pre-Commit note</summary>
+
+1. Open pyproject.toml
+2. Add the pre-commit line below.
+3. Save the File
+4. Run the commands below.
+
+```shell
+[project.optional-dependencies]
+dev = [
+  "pre-commit", # code quality checks before commits
+  "pytest", # run some tests automatically
+  "pytest-cov", # coverage report for more visibility
+]
+docs = [
+  "mkdocs",                # Core MkDocs
+  "mkdocs-material",       # Modern, responsive theme
+  "mkdocstrings[python]",  # Auto-generate API docs from docstrings
+  "livereload",            # Enables live reload (auto-refresh on edit)
+  "watchdog",              # Faster and more reliable file watching
+  "ruff",                  # Needed so mkdocstrings can format signatures
+]
+```
+```shell
+uv sync --extra dev --extra docs --upgrade
+```
+```shell
+uv run pre-commit install
+```
+</details>
+
+Follow the Workflows below.
 
 ---
 
@@ -44,13 +91,6 @@ uv run python --version
 ```shell
 .\.venv\Scripts\activate
 ```
-
-**macOS / Linux / WSL:**
-
-```shell
-source .venv/bin/activate
-```
-
 ---
 
 ## WORKFLOW 3. Daily Workflow
@@ -166,5 +206,31 @@ With a working version safe in GitHub, start making changes to the code.
 Before starting a new session, remember to do a `git pull` and keep your tools updated.
 
 Each time forward progress is made, remember to git add-commit-push.
+
+---
+
+## Module 2 - BI Python - reading raw data into panda DataFrames
+
+Goals:
+1. Create a new file: src/analytics_project/data_prep.py
+   1. [P2-data_prep.py](https://github.com/denisecase/smart-sales-starter-files/blob/main/src/analytics_project/data_prep.py)
+2. Start with at docstring at the top.
+3. Make a place for imports after the docstring.
+4. Set up global constants (we'll use these for our project paths).
+5. Make a place for defining the reusable function.
+6. After the reusable function(s), define a function named main() to hold the initial logic for our processing pipeline.
+7. Use the standard Python conditional execution block to run the main() method when we execute this module directly.
+
+Execute:
+```shell
+uv run python -m analytics_project.data_prep
+```
+
+L2025-10-30 19:08:INFO    AT data_prep.py:32: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\customers_data.csv.
+2025-10-30 19:08:INFO    AT data_prep.py:35: customers_data.csv: loaded DataFrame with shape 201 rows x 4 cols
+2025-10-30 19:08:INFO    AT data_prep.py:32: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\products_data.csv.
+2025-10-30 19:08:INFO    AT data_prep.py:35: products_data.csv: loaded DataFrame with shape 100 rows x 4 cols
+2025-10-30 19:08:INFO    AT data_prep.py:32: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\sales_data.csv.
+2025-10-30 19:08:INFO    AT data_prep.py:35: sales_data.csv: loaded DataFrame with shape 2001 rows x 7 colsog Proof:
 
 
