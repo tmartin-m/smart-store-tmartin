@@ -1,4 +1,4 @@
-TransactionID,SaleDate,CustomerID,ProductID,StoreID,CampaignID,SaleAmount,Discount,PaymentMethod
+TransactionID,SaleDate,CustomerID,ProductID,StoreID,CampaignID,SaleAmount,DiscountPercentage,PaymentMethod
 1,5/4/2025,1034,2059,402,0,2048.2,900.13,Cash
 2,5/4/2025,1066,2048,403,1,321.87,13.79,Crdit Card
 3,5/4/2025,1116,2041,403,3,3216.84,7.46,Credit Card
