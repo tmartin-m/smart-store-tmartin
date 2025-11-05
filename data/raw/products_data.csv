@@ -1,101 +1,101 @@
-ProductID,ProductName,Category,UnitPrice
-2000,Electronics-Be,Electronics,969.31
-2001,Electronics-Be,Clothing,412.35
-2002,Office-Family,Clothing,866.0
-2003,Electronics-Training,Clothing,385.18
-2004,Office-Where,Home,927.25
-2005,Office-Huge,Home,428.78
-2006,Office-Class,Clothing,198.0
-2007,Clothing-Over,Electronics,583.39
-2008,Electronics-Skin,Home,66.59
-2009,Office-Raise,Clothing,66.31
-2010,Electronics-Themselves,Clothing,77.84
-2011,Electronics-Religious,Clothing,409.74
-2012,Clothing-Artist,Electronics,623.19
-2013,Office-Cultural,Home,935.36
-2014,Clothing-Eat,Home,246.3
-2015,Office-Itself,Clothing,674.97
-2016,Home-He,Office,323.02
-2017,Electronics-Feeling,Electronics,463.7
-2018,Electronics-Nature,Electronics,542.26
-2019,Home-History,Clothing,933.93
-2020,Electronics-Share,Clothing,375.83
-2021,Clothing-Skill,Office,835.41
-2022,Home-Economy,Electronics,671.18
-2023,Home-Yeah,Electronics,939.54
-2024,Clothing-Paper,Home,124.27
-2025,Electronics-Assume,Clothing,279.62
-2026,Clothing-Use,Home,211.56
-2027,Home-Purpose,Office,258.61
-2028,Electronics-Take,Electronics,637.94
-2029,Home-Yourself,Electronics,13.51
-2030,Clothing-First,Home,169.97
-2031,Office-Develop,Office,565.3
-2032,Electronics-There,Electronics,945.6
-2033,Clothing-Argue,Electronics,836.25
-2034,Clothing-Feel,Office,136.17
-2035,Home-According,Home,899.99
-2036,Electronics-Candidate,Home,217.98
-2037,Clothing-Meeting,Electronics,360.14
-2038,Office-Soon,Clothing,926.51
-2039,Clothing-Need,Clothing,976.44
-2040,Clothing-Determine,Office,34.54
-2041,Home-Assume,Office,804.21
-2042,Clothing-Lawyer,Home,167.61
-2043,Electronics-Practice,Office,873.45
-2044,Office-Society,Clothing,207.58
-2045,Office-Next,Home,312.14
-2046,Clothing-Worry,Clothing,33.43
-2047,Clothing-Hair,Office,334.98
-2048,Electronics-Candidate,Home,357.63
-2049,Office-Easy,Home,939.84
-2050,Electronics-Young,Home,186.78
-2051,Home-Century,Electronics,117.32
-2052,Office-Year,Home,731.26
-2053,Home-Ground,Office,610.15
-2054,Electronics-Above,Office,900.51
-2055,Clothing-Politics,Home,53.94
-2056,Office-About,Electronics,524.72
-2057,Clothing-Identify,Home,436.98
-2058,Home-Wear,Home,666.75
-2059,Electronics-Clear,Home,512.05
-2060,Office-Term,Home,408.38
-2061,Home-Quite,Clothing,199.92
-2062,Office-Receive,Clothing,619.36
-2063,Home-Good,Office,552.46
-2064,Electronics-Stop,Home,294.04
-2065,Office-Animal,Home,470.34
-2066,Office-Occur,Clothing,516.06
-2067,Clothing-Remain,Electronics,290.95
-2068,Home-Read,Electronics,820.24
-2069,Clothing-Garden,Home,232.39
-2070,Clothing-About,Clothing,34.18
-2071,Clothing-Success,Office,615.16
-2072,Electronics-Become,Office,420.3
-2073,Clothing-Executive,Office,499.43
-2074,Clothing-Strong,Clothing,659.5
-2075,Electronics-Letter,Electronics,780.64
-2076,Clothing-Affect,Clothing,806.07
-2077,Office-Ball,Electronics,561.83
-2078,Electronics-Film,Office,142.01
-2079,Office-Who,Home,950.54
-2080,Office-Doctor,Office,832.26
-2081,Office-Light,Clothing,746.22
-2082,Office-Figure,Office,266.6
-2083,Clothing-Cut,Home,768.16
-2084,Office-Stuff,Clothing,281.85
-2085,Electronics-Officer,Home,242.15
-2086,Home-Of,Home,894.1
-2087,Electronics-Rather,Clothing,159.32
-2088,Office-Evening,Clothing,709.35
-2089,Electronics-Action,Office,413.52
-2090,Office-Staff,Office,71.64
-2091,Office-Mrs,Office,905.79
-2092,Electronics-Add,Office,482.21
-2093,Home-Real,Home,755.94
-2094,Office-Fight,Clothing,493.35
-2095,Home-Seem,Office,490.79
-2096,Office-Discuss,Home,672.18
-2097,Office-Recent,Clothing,842.1
-2098,Clothing-Trouble,Electronics,907.86
-2099,Electronics-Several,Electronics,646.32
+ProductID,ProductName,Category,UnitPrice,Stock,Supplier
+2000,Electronics-Be,Electronics,969.31,93,Supplier F
+2001,Electronics-Be,Clothing,412.35,44,Supplier B
+2002,Office-Family,Clothing,866,84,Supplier B
+2003,Electronics-Training,Clothing,385.18,89,Supplier A
+2004,Office-Where,Home,927.25,24,Supplier B
+2005,Office-Huge,Home,428.78,30,Supplier A
+2006,Office-Class,Clothing,198,75,Supplier C
+2007,Clothing-Over,Electronics,583.39,48,Supplier A
+2008,Electronics-Skin,Home,66.59,27,Supplier A
+2009,Office-Raise,Clothing,66.31,85,Supplier A
+2010,Electronics-Themselves,Clothing,77.84,99,Supplier C
+2011,Electronics-Religious,Clothing,409.74,,Supplier C
+2012,Clothing-Artist,Electronics,623.19,26,Supplier B
+2013,Office-Cultural,Home,935.36,73,Supplier A
+2014,Clothing-Eat,Home,246.3,69,Supplier C
+2015,Office-Itself,Clothing,674.97,36,Supplier C
+2016,Home-He,Office,323.02,78,Supplier B
+2017,Electronics-Feeling,Electronics,463.7,46,Supplier C
+2018,Electronics-Nature,Electronics,542.26,37,Supplier C
+2019,Home-History,Clothing,933.93,23,Supplier A
+2020,Electronics-Share,Clothing,375.83,13,Supplier B
+2021,Clothing-Skill,Office,835.41,25,Supplier A
+2022,Home-Economy,Electronics,671.18,55,Supplier C
+2023,Home-Yeah,Electronics,939.54,35,Supplier B
+2024,Clothing-Paper,Home,124.27,49,Supplier B
+2025,Electronics-Assume,Clothing,279.62,49,Supplier A
+2026,Clothing-Use,Home,211.56,84,Supplier C
+2027,Home-Purpose,Office,258.61,25,Supplier C
+2028,Electronics-Take,Electronics,637.94,33,Supplier B
+2029,Home-Yourself,Electronics,13.51,10,Supplier A
+2030,Clothing-First,Home,169.97,77,Supplier A
+2031,Office-Develop,Office,565.3,83,Supplier A
+2032,Electronics-There,Electronics,945.6,41,Supplier A
+2033,Clothing-Argue,Electronics,836.25,87,Supplier C
+2034,Clothing-Feel,Office,136.17,66,Supplier A
+2035,Home-According,Home,899.99,16,Supplier C
+2036,Electronics-Candidate,Home,217.98,79,Supplier B
+2037,Clothing-Meeting,Electronics,360.14,23,Supplier B
+2038,Office-Soon,Clothing,926.51,84,Supplier B
+2039,Clothing-Need,Clothing,976.44,36,Supplier A
+2040,Clothing-Determine,Office,34.54,41,Supplier A
+2041,Home-Assume,Office,804.21,16,Supplier A
+2042,Clothing-Lawyer,Home,167.61,71,Supplier C
+2043,Electronics-Practice,Office,873.45,51,Supplier B
+2044,Office-Society,Clothing,207.58,22,Supplier B
+2045,Office-Next,Home,312.14,22,Supplier B
+2046,Clothing-Worry,Clothing,33.43,83,Supplier A
+2047,Clothing-Hair,Office,334.98,87,Supplier B
+2048,Electronics-Candidate,Home,357.63,28,Supplier A
+2049,Office-Easy,Home,939.84,44,Supplier B
+2050,Electronics-Young,Home,186.78,88,Supplier A
+2051,Home-Century,Electronics,117.32,32,Supplier B
+2052,Office-Year,Home,731.26,89,Supplier A
+2053,Home-Ground,Office,610.15,26,Supplier A
+2054,Electronics-Above,Office,900.51,84,Supplier A
+2055,Clothing-Politics,Home,53.94,54,Supplier A
+2056,Office-About,Electronics,524.72,70,Supplier A
+2057,Clothing-Identify,Home,436.98,79,Supplier B
+2058,Home-Wear,Home,666.75,27,Supplier A
+2059,Electronics-Clear,Home,512.05,30,Supplier B
+2060,Office-Term,Home,408.38,45,Supplier A
+2061,Home-Quite,Clothing,199.92,80,Supplier C
+2062,Office-Receive,Clothing,619.36,40,Supplier A
+2063,Home-Good,Office,552.46,31,Supplier C
+2064,Electronics-Stop,Home,294.04,18,Supplier B
+2065,Office-Animal,Home,470.34,93,Supplier C
+2066,Office-Occur,Clothing,516.06,30,Supplier C
+2067,Clothing-Remain,Electronics,290.95,87,Supplier C
+2068,Home-Read,Electronics,820.24,17,Supplier C
+2069,Clothing-Garden,Home,232.39,47,Supplier B
+2070,Clothing-About,Clothing,34.18,92,Supplier C
+2071,Clothing-Success,Office,615.16,91,Supplier B
+2072,Electronics-Become,Office,420.3,59,Supplier B
+2073,Clothing-Executive,Office,499.43,33,Supplier A
+2074,Clothing-Strong,Clothing,659.5,83,Supplier C
+2075,Electronics-Letter,Electronics,780.64,66,Supplier B
+2076,Clothing-Affect,Clothing,806.07,83,
+2077,Office-Ball,Electronics,561.83,48,Supplier C
+2078,Electronics-Film,Office,142.01,77,Supplier A
+2079,Office-Who,Home,950.54,61,Supplier A
+2080,Office-Doctor,Office,832.26,69,Supplier B
+2081,Office-Light,Clothing,746.22,66,Supplier C
+2082,Office-Figure,Office,266.6,63,Supplier A
+2083,Clothing-Cut,Home,768.16,48,Supplier C
+2084,Office-Stuff,Clothing,281.85,75,Supplier B
+2085,Electronics-Officer,Home,242.15,68,Supplier C
+2086,Home-Of,Home,894.1,73,Supplier C
+2087,Electronics-Rather,Clothing,159.32,89,Supplier B
+2088,Office-Evening,Clothing,709.35,20,Supplier C
+2089,Electronics-Action,Office,413.52,50,Supplier C
+2090,Office-Staff,Office,71.64,35,Supplier C
+2091,Office-Mrs,Office,905.79,,Supplier C
+2092,Electronics-Add,Office,482.21,33,Supplier B
+2093,Home-Real,Home,755.94,18,Supplier B
+2094,Office-Fight,Clothing,493.35,37,Supplier A
+2095,Home-Seem,Office,490.79,91,Supplier B
+2096,Office-Discuss,Home,672.18,38,Supplier B
+2097,Office-Recent,Clothing,842.1,80,Supplier C
+2098,Clothing-Trouble,Electronics,907.86,31,Supplier A
+2099,Electronics-Several,Electronics,646.32,46,Supplier C
