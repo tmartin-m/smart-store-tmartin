@@ -113,3 +113,12 @@ Norwegian: Hei! Velkommen til Python-programmering.
 2025-10-30 19:08:INFO    AT data_prep.py:32: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\sales_data.csv.
 2025-10-30 19:08:INFO    AT data_prep.py:35: sales_data.csv: loaded DataFrame with shape 2001 rows x 7 cols
 2025-10-30 19:08:INFO    AT data_prep.py:64: Data preparation complete.
+2025-11-06 20:51:INFO    AT logger.py:105: Logging to file: C:\Repos\smart-store-tmartin\project.log
+2025-11-06 20:51:INFO    AT data_prep.py:53: Starting data preparation...
+2025-11-06 20:51:INFO    AT data_prep.py:33: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\customers_data.csv.
+2025-11-06 20:51:INFO    AT data_prep.py:36: customers_data.csv: loaded DataFrame with shape 201 rows x 6 cols
+2025-11-06 20:51:INFO    AT data_prep.py:33: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\products_data.csv.
+2025-11-06 20:51:INFO    AT data_prep.py:36: products_data.csv: loaded DataFrame with shape 100 rows x 6 cols
+2025-11-06 20:51:INFO    AT data_prep.py:33: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\sales_data.csv.
+2025-11-06 20:51:INFO    AT data_prep.py:36: sales_data.csv: loaded DataFrame with shape 2001 rows x 9 cols
+2025-11-06 20:51:INFO    AT data_prep.py:65: Data preparation complete.

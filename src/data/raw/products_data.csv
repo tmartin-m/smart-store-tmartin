@@ -1,24 +1,24 @@
 ProductID,ProductName,Category,UnitPrice,Stock,Supplier
 2000,Electronics-Be,Electronics,969.31,93,Supplier F
-2001,Electronics-Be,Clothing,412.35,44,Supplier B
-2002,Office-Family,Clothing,866,84,Supplier B
+2000,Electronics-Be,Clothing,412.35,,Supplier B
+2002,Office-Family,Clothing,866,84,supplier B
 2003,Electronics-Training,Clothing,385.18,89,Supplier A
 2004,Office-Where,Home,927.25,24,Supplier B
 2005,Office-Huge,Home,428.78,30,Supplier A
 2006,Office-Class,Clothing,198,75,Supplier C
-2007,Clothing-Over,Electronics,583.39,48,Supplier A
+2007,Clothing-Over,Electronics,583.39,48,
 2008,Electronics-Skin,Home,66.59,27,Supplier A
 2009,Office-Raise,Clothing,66.31,85,Supplier A
 2010,Electronics-Themselves,Clothing,77.84,99,Supplier C
 2011,Electronics-Religious,Clothing,409.74,,Supplier C
 2012,Clothing-Artist,Electronics,623.19,26,Supplier B
 2013,Office-Cultural,Home,935.36,73,Supplier A
-2014,Clothing-Eat,Home,246.3,69,Supplier C
+2014,Clothing-Eat,Home,-246.3,69,Supplier C
 2015,Office-Itself,Clothing,674.97,36,Supplier C
 2016,Home-He,Office,323.02,78,Supplier B
 2017,Electronics-Feeling,Electronics,463.7,46,Supplier C
-2018,Electronics-Nature,Electronics,542.26,37,Supplier C
-2019,Home-History,Clothing,933.93,23,Supplier A
+2018,Electronics-Nature,Electronics,542.26,1,Supplier C
+2019,Home-History,Clothing,933.93,423,Supplier A
 2020,Electronics-Share,Clothing,375.83,13,Supplier B
 2021,Clothing-Skill,Office,835.41,25,Supplier A
 2022,Home-Economy,Electronics,671.18,55,Supplier C

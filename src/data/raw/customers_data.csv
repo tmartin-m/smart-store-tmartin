@@ -1,5 +1,5 @@
 CustomerID,Name,Region,JoinDate,Status,Points
-1000,Robert Gomez,West,2/25/2024,Bronze,247
+1000,Robert Gomez,West,2/25/2024,,-247
 1001,John Silva,East,12/1/2020,Platinum,9490
 1002,Mark Marshall,Central,8/8/2020,Platinum,8843
 1003,David Brennan,North,5/21/2020,Platinum,9789
@@ -199,4 +199,4 @@ CustomerID,Name,Region,JoinDate,Status,Points
 1196,Dr. Elizabeth Johnston DDS,North,2/9/2022,Gold,5919
 1197,William Wilson,West,4/4/2023,Silver,1800
 1198,Chris Allen,south-west,10/11/2022,NA,4537
-1199,James Cooley,West,7/23/2020,Platinum,10288
+1199,James Cooley,West,7/23/2020,Platinum,102880
