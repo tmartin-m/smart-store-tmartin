@@ -122,3 +122,47 @@ Norwegian: Hei! Velkommen til Python-programmering.
 2025-11-06 20:51:INFO    AT data_prep.py:33: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\sales_data.csv.
 2025-11-06 20:51:INFO    AT data_prep.py:36: sales_data.csv: loaded DataFrame with shape 2001 rows x 9 cols
 2025-11-06 20:51:INFO    AT data_prep.py:65: Data preparation complete.
+2025-11-07 23:30:INFO    AT utils_logger.py:105: Logging to file: C:\Repos\smart-store-tmartin\project.log
+2025-11-07 23:30:INFO    AT data_prep.py:41: Starting data preparation...
+2025-11-07 23:30:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\customers_data.csv.
+2025-11-07 23:30:ERROR   AT data_prep.py:32: File not found: C:\Repos\smart-store-tmartin\data\raw\customers_data.csv
+2025-11-07 23:30:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\products_data.csv.
+2025-11-07 23:30:ERROR   AT data_prep.py:32: File not found: C:\Repos\smart-store-tmartin\data\raw\products_data.csv
+2025-11-07 23:30:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\sales_data.csv.
+2025-11-07 23:30:ERROR   AT data_prep.py:32: File not found: C:\Repos\smart-store-tmartin\data\raw\sales_data.csv
+2025-11-07 23:30:INFO    AT data_prep.py:90: Data preparation complete.
+2025-11-07 23:37:INFO    AT utils_logger.py:105: Logging to file: C:\Repos\smart-store-tmartin\project.log
+2025-11-07 23:37:INFO    AT data_prep.py:41: Starting data preparation...
+2025-11-07 23:37:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\customers_data.csv.
+2025-11-07 23:37:ERROR   AT data_prep.py:32: File not found: C:\Repos\smart-store-tmartin\data\raw\customers_data.csv
+2025-11-07 23:37:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\products_data.csv.
+2025-11-07 23:37:ERROR   AT data_prep.py:32: File not found: C:\Repos\smart-store-tmartin\data\raw\products_data.csv
+2025-11-07 23:37:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\sales_data.csv.
+2025-11-07 23:37:ERROR   AT data_prep.py:32: File not found: C:\Repos\smart-store-tmartin\data\raw\sales_data.csv
+2025-11-07 23:37:INFO    AT data_prep.py:90: Data preparation complete.
+2025-11-07 23:42:INFO    AT utils_logger.py:105: Logging to file: C:\Repos\smart-store-tmartin\project.log
+2025-11-07 23:42:INFO    AT data_prep.py:41: Starting data preparation...
+2025-11-07 23:42:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\customers_data.csv.
+2025-11-07 23:42:INFO    AT data_prep.py:29: customers_data.csv: loaded DataFrame with shape 201 rows x 6 cols
+2025-11-07 23:44:INFO    AT utils_logger.py:105: Logging to file: C:\Repos\smart-store-tmartin\project.log
+2025-11-07 23:44:INFO    AT data_prep.py:41: Starting data preparation...
+2025-11-07 23:44:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\customers_data.csv.
+2025-11-07 23:44:INFO    AT data_prep.py:29: customers_data.csv: loaded DataFrame with shape 201 rows x 6 cols
+2025-11-07 23:44:INFO    AT data_prep.py:56: Customer data cleaned.
+2025-11-07 23:44:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\products_data.csv.
+2025-11-07 23:44:INFO    AT data_prep.py:29: products_data.csv: loaded DataFrame with shape 100 rows x 6 cols
+2025-11-07 23:44:INFO    AT data_prep.py:68: Product data cleaned.
+2025-11-07 23:44:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\sales_data.csv.
+2025-11-07 23:44:INFO    AT data_prep.py:29: sales_data.csv: loaded DataFrame with shape 2001 rows x 9 cols
+2025-11-07 23:47:INFO    AT utils_logger.py:105: Logging to file: C:\Repos\smart-store-tmartin\project.log
+2025-11-07 23:47:INFO    AT data_prep.py:41: Starting data preparation...
+2025-11-07 23:47:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\customers_data.csv.
+2025-11-07 23:47:INFO    AT data_prep.py:29: customers_data.csv: loaded DataFrame with shape 201 rows x 6 cols
+2025-11-07 23:47:INFO    AT data_prep.py:56: Customer data cleaned.
+2025-11-07 23:47:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\products_data.csv.
+2025-11-07 23:47:INFO    AT data_prep.py:29: products_data.csv: loaded DataFrame with shape 100 rows x 6 cols
+2025-11-07 23:47:INFO    AT data_prep.py:68: Product data cleaned.
+2025-11-07 23:47:INFO    AT data_prep.py:27: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\sales_data.csv.
+2025-11-07 23:47:INFO    AT data_prep.py:29: sales_data.csv: loaded DataFrame with shape 2001 rows x 9 cols
+2025-11-07 23:47:INFO    AT data_prep.py:80: Sales data cleaned.
+2025-11-07 23:47:INFO    AT data_prep.py:84: Data preparation complete.
