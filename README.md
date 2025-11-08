@@ -234,4 +234,30 @@ Log Proof:
 - 2025-10-30 19:08:INFO    AT data_prep.py:32: Reading raw data from C:\Repos\smart-store-tmartin\data\raw\sales_data.csv.
 - 2025-10-30 19:08:INFO    AT data_prep.py:35: sales_data.csv: loaded DataFrame with shape 2001 rows x 7 cols
 
+## Module 3 - Prepare Data for ETL
 
+Goals:
+1. Employ Python pandas to perform some common cleaning and prep tasks.
+   1. [Data Cleaning Process](https://github.com/denisecase/smart-sales-docs/blob/main/D33_Data_Cleaning_with_pandas.md)
+2. Wrap this functionality into a reusable DataScrubber class.
+   1. [Reference File](https://github.com/denisecase/smart-sales-docs/blob/main/utils/data_scrubber.py)
+3. Use Python unittest (from the Python Standard Library) to verify the DataScrubber class methods have been correctly defined and perform the necessary logic correctly.
+4. Finish the TODO items in the provided DataScrubber class.
+5. Run the test data scrubber script to verify ALL tests pass 100%.
+6. Use the DataScrubber class in your data prep script.
+
+<details>
+<summary>Click to see a note on pathway errors</summary>
+
+smart-store-tmartin/
+└── src/
+    └── analytics_project/
+        ├── scripts/
+        │   └── data_preparation/
+        │       └── prepare_customers.py
+        ├── utils/
+        │   ├── __init__.py
+        │   ├── logger.py
+        │   └── data_scrubber.py
+
+</details>
