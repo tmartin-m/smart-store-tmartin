@@ -270,36 +270,37 @@ Goals:
    1. Star Schema elected for easy possible expansion of dimension tables in the future.
       1. Fact Table
          1. Sales
-            transaction_id INTEGER PRIMARY KEY,
-            sale_date TEXT,
-            customer_id INTEGER,
-            product_id INTEGER,
-            store_id INTEGER,
-            campaign_id INTEGER,
-            sale_amount REAL,
-            discount_percentage REAL,
-            payment_method TEXT,
-            FOREIGN KEY (customer_id) REFERENCES customer (customer_id),
-            FOREIGN KEY (product_id) REFERENCES product (product_id)
+            - transaction_id INTEGER PRIMARY KEY,
+            - sale_date TEXT,
+            - customer_id INTEGER,
+            - product_id INTEGER,
+            - store_id INTEGER,
+            - campaign_id INTEGER,
+            - sale_amount REAL,
+            - discount_percentage REAL,
+            - payment_method TEXT,
+            - FOREIGN KEY (customer_id) REFERENCES customer (customer_id),
+            - FOREIGN KEY (product_id) REFERENCES product (product_id)
       2. Dimension Tables
          1. Customers:
-            customer_id INTEGER PRIMARY KEY,
-            name TEXT,
-            region TEXT,
-            join_date TEXT,
-            status TEXT,
-            points INTEGER
+            - customer_id INTEGER PRIMARY KEY,
+            - name TEXT,
+            - region TEXT,
+            - join_date TEXT,
+            - status TEXT,
+            - points INTEGER
          2. Products:
-            product_id INTEGER PRIMARY KEY,
-            product_name TEXT,
-            category TEXT,
-            unit_price REAL,
-            stock INTEGER,
-            supplier TEXT
+            - product_id INTEGER PRIMARY KEY,
+            - product_name TEXT,
+            - category TEXT,
+            - unit_price REAL,
+            - stock INTEGER,
+            - supplier TEXT
 3. Implement the schema using a database system to create a functional data warehouse.
 4. Write and execute an ETL script to populate the warehouse.
    1. [ETL_TO_DW.PY Example](https://github.com/denisecase/smart-sales-example/blob/main/src/analytics_project/dw/etl_to_dw.py)
-   2. ```shell
+   2.
+```shell
 uv run python -m analytics_project.etl_to_dw
 ```
 5. Verify and document the schema and data.
@@ -323,13 +324,12 @@ uv run python -m analytics_project.etl_to_dw
    18. 2025-11-14 20:11:22.897 | INFO     | __main__:insert_sales:136 - Inserting 1929 sale rows.
    19. 2025-11-14 20:11:22.905 | INFO     | __main__:load_data_to_db:241 - ETL finished successfully. Data loaded into the warehouse.
    20. 2025-11-14 20:11:22.905 | INFO     | __main__:load_data_to_db:245 - Closing database connection.
-![Customers](image.png)
-![Products](image-1.png)
-![Sales](image-2.png)
+![Customers](C:\Repos\smart-store-tmartin\image.png)
+![Products](C:\Repos\smart-store-tmartin\image-1.png)
+![Sales](C:\Repos\smart-store-tmartin\image-2.png)
 
 Challenges:
 - PACKAGE_DIR: pathlib.Path = DW_DIR.parent  # src/analytics_project/
   - Updated to remove DW.DIR.parent as I didn't house my file in src/analytics_project/dw
 - sqlite3.IntegrityError: UNIQUE constraint failed: customer.customer_id
   - Added drop duplicates before insert to delete the duplicate customer_id row for 1005 missed in prep
-- a
