@@ -325,8 +325,8 @@ uv run python -m analytics_project.etl_to_dw
    19. 2025-11-14 20:11:22.905 | INFO     | __main__:load_data_to_db:241 - ETL finished successfully. Data loaded into the warehouse.
    20. 2025-11-14 20:11:22.905 | INFO     | __main__:load_data_to_db:245 - Closing database connection.
 ![Customers](image.png)
-![Products](docs\images\image-1.png)
-![Sales](docs\images\image-2.png)
+![Products](image-1.png)
+![Sales](image-2.png)
 
 Challenges:
 - PACKAGE_DIR: pathlib.Path = DW_DIR.parent  # src/analytics_project/
