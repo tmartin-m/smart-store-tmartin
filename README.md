@@ -261,3 +261,75 @@ smart-store-tmartin/
         │   └── data_scrubber.py
 
 </details>
+
+## Module 4 - Create and Populate DW
+
+Goals:
+1. Understand the role of a data warehouse in business intelligence.
+2. Design a schema that effectively organizes data for analysis.
+   1. Star Schema elected for easy possible expansion of dimension tables in the future.
+      1. Fact Table
+         1. Sales
+            transaction_id INTEGER PRIMARY KEY,
+            sale_date TEXT,
+            customer_id INTEGER,
+            product_id INTEGER,
+            store_id INTEGER,
+            campaign_id INTEGER,
+            sale_amount REAL,
+            discount_percentage REAL,
+            payment_method TEXT,
+            FOREIGN KEY (customer_id) REFERENCES customer (customer_id),
+            FOREIGN KEY (product_id) REFERENCES product (product_id)
+      2. Dimension Tables
+         1. Customers:
+            customer_id INTEGER PRIMARY KEY,
+            name TEXT,
+            region TEXT,
+            join_date TEXT,
+            status TEXT,
+            points INTEGER
+         2. Products:
+            product_id INTEGER PRIMARY KEY,
+            product_name TEXT,
+            category TEXT,
+            unit_price REAL,
+            stock INTEGER,
+            supplier TEXT
+3. Implement the schema using a database system to create a functional data warehouse.
+4. Write and execute an ETL script to populate the warehouse.
+   1. [ETL_TO_DW.PY Example](https://github.com/denisecase/smart-sales-example/blob/main/src/analytics_project/dw/etl_to_dw.py)
+   2. ```shell
+uv run python -m analytics_project.etl_to_dw
+```
+5. Verify and document the schema and data.
+   1. 2025-11-14 20:11:22.848 | INFO     | __main__:<module>:61 - THIS_DIR:            C:\Repos\smart-store-tmartin\src\analytics_project
+   2. 2025-11-14 20:11:22.848 | INFO     | __main__:<module>:62 - PACKAGE_DIR:         C:\Repos\smart-store-tmartin\src\analytics_project
+   3. 2025-11-14 20:11:22.848 | INFO     | __main__:<module>:63 - SRC_DIR:             C:\Repos\smart-store-tmartin\src
+   4. 2025-11-14 20:11:22.848 | INFO     | __main__:<module>:64 - PROJECT_ROOT_DIR:    C:\Repos\smart-store-tmartin
+   5. 2025-11-14 20:11:22.848 | INFO     | __main__:<module>:66 - DATA_DIR:            C:\Repos\smart-store-tmartin\data
+   6. 2025-11-14 20:11:22.848 | INFO     | __main__:<module>:67 - RAW_DATA_DIR:        C:\Repos\smart-store-tmartin\data\raw
+   7. 2025-11-14 20:11:22.854 | INFO     | __main__:<module>:68 - CLEAN_DATA_DIR:      C:\Repos\smart-store-tmartin\data\prepared
+   8. 2025-11-14 20:11:22.854 | INFO     | __main__:<module>:69 - WAREHOUSE_DIR:       C:\Repos\smart-store-tmartin\data\warehouse
+   9. 2025-11-14 20:11:22.854 | INFO     | __main__:<module>:70 - DB_PATH:             C:\Repos\smart-store-tmartin\data\warehouse\smart_sales.db
+   10. 2025-11-14 20:11:22.854 | INFO     | __main__:load_data_to_db:142 - Starting ETL: loading clean data into the warehouse.
+   11. 2025-11-14 20:11:22.854 | INFO     | __main__:load_data_to_db:149 - Removing existing warehouse database at: C:\Repos\smart-store-tmartin\data\warehouse\smart_sales.db
+   12. 2025-11-14 20:11:22.879 | INFO     | __main__:load_data_to_db:183 - Customer columns (cleaned): ['customer_id', 'name', 'region', 'join_date', 'status', 'points']
+   13. 2025-11-14 20:11:22.881 | INFO     | __main__:load_data_to_db:197 - Product columns (cleaned):  ['product_id', 'product_name', 'category', 'unit_price', 'stock', 'supplier']
+   14. 2025-11-14 20:11:22.881 | INFO     | __main__:load_data_to_db:217 - Sales columns (cleaned):  ['transaction_id', 'sale_date', 'customer_id', 'product_id', 'store_id', 'campaign_id', 'sale_amount', 'discount_percentage', 'payment_method']
+   15. 2025-11-14 20:11:22.881 | WARNING  | __main__:load_data_to_db:229 - Dropped 1 duplicate rows from customers.
+   16. 2025-11-14 20:11:22.881 | INFO     | __main__:insert_customers:124 - Inserting 198 customer rows.
+   17. 2025-11-14 20:11:22.889 | INFO     | __main__:insert_products:130 - Inserting 96 product rows.
+   18. 2025-11-14 20:11:22.897 | INFO     | __main__:insert_sales:136 - Inserting 1929 sale rows.
+   19. 2025-11-14 20:11:22.905 | INFO     | __main__:load_data_to_db:241 - ETL finished successfully. Data loaded into the warehouse.
+   20. 2025-11-14 20:11:22.905 | INFO     | __main__:load_data_to_db:245 - Closing database connection.
+![Customers](image.png)
+![Products](image-1.png)
+![Sales](image-2.png)
+
+Challenges:
+- PACKAGE_DIR: pathlib.Path = DW_DIR.parent  # src/analytics_project/
+  - Updated to remove DW.DIR.parent as I didn't house my file in src/analytics_project/dw
+- sqlite3.IntegrityError: UNIQUE constraint failed: customer.customer_id
+  - Added drop duplicates before insert to delete the duplicate customer_id row for 1005 missed in prep
+- a
