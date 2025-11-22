@@ -358,5 +358,11 @@ Project Summary:
 Power BI (desktop) and ODBC 64 bit Driver were installs needed before the project could begin on my Windows system. After installation the DSN was created linking the datawarehouse in our smart_store_tmartin>data>warehouse folder from Module 4. After loading the DSN into Power BI I was able to update the query for the customers table:
 
 ![Customer Query](image-3.png)
+![Customer Query Table](image-5.png)
 
+I ran into challenges with my sale_date data so I created a product_id slicer that allows to focus on specific products in both the total sales by product id line chart and drilldown bar chart by store id by campaign id by product id.I used a matrix with store ids and payment methods as rows and columns and the sum of sale amount as value. The allows users to see both store performance and customer payment preference. I created a drilldown bar chart of the Sales Amount by store id by campaign id by product id because it was allow the user to see if individual store performance had any ties to sales campaigns or having specific products to sale.
 
+![Matrix](image-6.png)
+![Slic/Dice/Drilldown](image-4.png)
+
+The visuals help to display that the difference in sales between the stores is relatively small for the total average out to about $435,685.61. The drill down and dicing displayed that each store had a couple of products that sold significantly more than others but none of the products were similar across any of the stores. The majority of the products across all stores had total sales of less than $2500.00.
