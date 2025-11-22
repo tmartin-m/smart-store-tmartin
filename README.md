@@ -333,3 +333,30 @@ Challenges:
   - Updated to remove DW.DIR.parent as I didn't house my file in src/analytics_project/dw
 - sqlite3.IntegrityError: UNIQUE constraint failed: customer.customer_id
   - Added drop duplicates before insert to delete the duplicate customer_id row for 1005 missed in prep
+
+## Module 5 - Cross Platform Reporting with Power BI & Spark
+
+Goals:
+1. Connect to a data warehouse for reporting
+2. Write and execute SQL queries
+3. Implement OLAP operations including slicing, dicing, and drilldowns
+4. Create visuals that communicate business insights
+5. Document analysis results clearly and professionally
+
+<details>
+<summary>Click to see a note on Working with Dates</summary>
+
+Be careful about Dates - they are extremely complex objects and if we're storing them as text we have a lot of work to do.
+
+4 digit year, 2 digit month number, 2 digit day numbers are MUCH easier to work with.  (This is part of why paid systems exist - they do the hard work for us - I require all free tools here at school.)
+
+Optional: if you like, you can add a special data dimension as described in (Optional): [Finalizing Your Data Warehouse](https://denisecase.github.io/smart-sales-example/guide/finalize-datawarehouse/) to an external site.- this common when working with dates, but can also be handled by modern OLAP tools. If you choose this, adjust the remining instructions accordingly.
+
+</details>
+
+Project Summary:
+Power BI (desktop) and ODBC 64 bit Driver were installs needed before the project could begin on my Windows system. After installation the DSN was created linking the datawarehouse in our smart_store_tmartin>data>warehouse folder from Module 4. After loading the DSN into Power BI I was able to update the query for the customers table:
+
+![Customer Query](image-3.png)
+
+
