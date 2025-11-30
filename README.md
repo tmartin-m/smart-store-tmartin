@@ -366,3 +366,23 @@ I ran into challenges with my sale_date data so I created a product_id slicer th
 ![Slic/Dice/Drilldown](image-4.png)
 
 The visuals help to display that the difference in sales between the stores is relatively small for the total average out to about $435,685.61. The drill down and dicing displayed that each store had a couple of products that sold significantly more than others but none of the products were similar across any of the stores. The majority of the products across all stores had total sales of less than $2500.00.
+
+## Module 6 - BI Insights and Storytelling & Engage (With 1 Outcome)
+
+Section 1. The Business Goal
+Clearly state the exact question being addressed and why it matters.
+Section 2. Data Source
+What information did you start with (prepared data, data warehouse, or pre-computed cube)?
+Clearly indicate which columns of which tables were used.
+Section 3. Tools
+Tell us what tools you used and why.
+Section 4. Workflow & Logic
+Describe the dimensions and aggregations - the logic needed for your analysis
+If using a graphical tool like Power BI or Tableau Prep, use screenshots to show your work.
+Section 5. Results
+Present your insights with narrative and visualizations.
+Explain any suggested actions based on the results you uncovered.
+Section 6: Suggested Business Action
+What actions are recommended based on your work
+Section 7. Challenges
+Mention any challenges you encountered and how they were resolved.

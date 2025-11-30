@@ -96,6 +96,17 @@ def create_schema(cursor: sqlite3.Cursor) -> None:
     """)
 
     cursor.execute("""
+        CREATE TABLE IF NOT EXISTS store (
+            store_id INTEGER PRIMARY KEY,
+            store_name TEXT NOT NULL,
+            city TEXT NOT NULL,
+            state TEXT NOT NULL,
+            location_type TEXT NOT NULL,
+            region TEXT NOT NULL
+        )
+    """)
+
+    cursor.execute("""
         CREATE TABLE IF NOT EXISTS sale (
             transaction_id INTEGER PRIMARY KEY,
             sale_date TEXT,
@@ -107,15 +118,17 @@ def create_schema(cursor: sqlite3.Cursor) -> None:
             discount_percentage REAL,
             payment_method TEXT,
             FOREIGN KEY (customer_id) REFERENCES customer (customer_id),
-            FOREIGN KEY (product_id) REFERENCES product (product_id)
+            FOREIGN KEY (product_id) REFERENCES product (product_id),
+            FOREIGN KEY (store_id) REFERENCES store (store_id)
         )
     """)
 
 
 def delete_existing_records(cursor: sqlite3.Cursor) -> None:
-    """Delete all existing records from the customer, product, and sale tables."""
+    """Delete all existing records from the customer, product, store and sale tables."""
     cursor.execute("DELETE FROM customer")
     cursor.execute("DELETE FROM product")
+    cursor.execute("DELETE FROM store")
     cursor.execute("DELETE FROM sale")
 
 
@@ -129,6 +142,12 @@ def insert_products(products_df: pd.DataFrame, cursor: sqlite3.Cursor) -> None:
     """Insert product data into the product table."""
     logger.info(f"Inserting {len(products_df)} product rows.")
     products_df.to_sql("product", cursor.connection, if_exists="append", index=False)
+
+
+def insert_stores(stores_df: pd.DataFrame, cursor: sqlite3.Cursor) -> None:
+    """Insert store data into the store table."""
+    logger.info(f"Inserting {len(stores_df)} store rows.")
+    stores_df.to_sql("store", cursor.connection, if_exists="append", index=False)
 
 
 def insert_sales(sales_df: pd.DataFrame, cursor: sqlite3.Cursor) -> None:
@@ -165,6 +184,7 @@ def load_data_to_db() -> None:
         # Load prepared data using pandas
         customers_df = pd.read_csv(CLEAN_DATA_DIR.joinpath("customers_prepared.csv"))
         products_df = pd.read_csv(CLEAN_DATA_DIR.joinpath("products_prepared.csv"))
+        stores_df = pd.read_csv(CLEAN_DATA_DIR.joinpath("stores_prepared.csv"))
         # TODO: Uncomment after implementing sales data preparation
         sales_df = pd.read_csv(CLEAN_DATA_DIR.joinpath("sales_prepared.csv"))
 
@@ -196,6 +216,20 @@ def load_data_to_db() -> None:
         )
         logger.info(f"Product columns (cleaned):  {list(products_df.columns)}")
 
+        # Rename clean columns to match database schema if necessary
+        # Clean column name : Database column name
+        stores_df = stores_df.rename(
+            columns={
+                "StoreID": "store_id",
+                "StoreName": "store_name",
+                "City": "city",
+                "State": "state",
+                "LocationType": "location_type",
+                "Region": "region",
+            }
+        )
+        logger.info(f"Product columns (cleaned):  {list(products_df.columns)}")
+
         # TODO: Rename sales_df columns to match database schema if necessary
 
         # Rename clean columns to match database schema if necessary
@@ -220,6 +254,7 @@ def load_data_to_db() -> None:
         for df, name, key in [
             (customers_df, "customers", "customer_id"),
             (products_df, "products", "product_id"),
+            (stores_df, "stores", "store_id"),
             (sales_df, "sales", "transaction_id"),
         ]:
             before = len(df)
@@ -233,6 +268,8 @@ def load_data_to_db() -> None:
         insert_customers(customers_df, cursor)
 
         insert_products(products_df, cursor)
+
+        insert_stores(stores_df, cursor)
 
         # TODO: Uncomment after implementing sales data preparation
         insert_sales(sales_df, cursor)

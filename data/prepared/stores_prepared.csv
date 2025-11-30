@@ -1,0 +1,5 @@
+StoreID,StoreName,City,State,LocationType,Region
+401,Main Street Center,New York City,New York,Urban,East
+402,Central Mall,San Francisco,California,Urban,West
+403,Downtown Plaza,Sheboygan,Wisconsin,Suburban,North
+404,Southend Strip,Oxford,Mississippi,Rural,South
