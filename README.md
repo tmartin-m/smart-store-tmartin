@@ -392,7 +392,7 @@ Tell us what tools you used and why.
 Section 4. Workflow & Logic
 Describe the dimensions and aggregations - the logic needed for your analysis
 If using a graphical tool like Power BI or Tableau Prep, use screenshots to show your work.
-Section 5. Results
+### Section 5. Results
 ![Sales by Store ID](data\results\sales_by_store_id.png)
 
 ![Sales by Store ID2](data\results\sales_by_store_pie_chart.png)
