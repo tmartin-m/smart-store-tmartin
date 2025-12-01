@@ -377,12 +377,12 @@ Goals:
 5.  Describe the logic, process, and challenges behind your OLAP implementation.
 
 ### OLAP
-Section 1. The Business Goal
+### Section 1. The Business Goal
 Analyze sales data to identify trends and optimize resource allocation by comparing total sales from each store id. This can help inform decisions about potentially focusing more marketing efforts to less profirtable stores.
 
 We also drilled down to compare the total sales for each product id within each store id. This can help to inform decisions about potentially limited or increasing inventory for specific products at specific store locations.
 
-Section 2. Data Source
+### Section 2. Data Source
 A data cube was created with the following columns:
 
 DayOfWeek,store_id,store_name,region,product_id,sale_amount_sum,sale_amount_mean,transaction_id_count,transaction_ids
@@ -394,12 +394,19 @@ Describe the dimensions and aggregations - the logic needed for your analysis
 If using a graphical tool like Power BI or Tableau Prep, use screenshots to show your work.
 Section 5. Results
 ![Sales by Store ID](data\results\sales_by_store_id.png)
+
 ![Sales by Store ID2](data\results\sales_by_store_pie_chart.png)
+
 ![Sales by Store and Product](data\results\sales_by_store_and_product.png)
+
 ![Products by Store ID 401](data\results\product_sales_store_401.png)
+
 ![Products by Store ID 402](data\results\product_sales_store_402.png)
+
 ![Products by Store ID 403](data\results\product_sales_store_403.png)
+
 ![Products by Store ID 404](data\results\product_sales_store_404.png)
+
 ![Top 10 Products by store](data/results/sales_heatmap_limited.png)
 
 Section 6: Suggested Business Action
