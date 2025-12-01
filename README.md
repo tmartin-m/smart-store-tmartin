@@ -369,20 +369,43 @@ The visuals help to display that the difference in sales between the stores is r
 
 ## Module 6 - BI Insights and Storytelling & Engage (With 1 Outcome)
 
+Goals:
+1.  Analyze data using OLAP, slicing, dicing, and drilldown techniques to identify business insights.
+2.  Design a clear business question and define the data and metrics required to address it.
+3.  Use Python (or an alternate tool) to implement OLAP-style queries and analysis.
+4.  Present insights using clear visualizations and explain the business implications.
+5.  Describe the logic, process, and challenges behind your OLAP implementation.
+
+### OLAP
 Section 1. The Business Goal
-Clearly state the exact question being addressed and why it matters.
+Analyze sales data to identify trends and optimize resource allocation by comparing total sales from each store id. This can help inform decisions about potentially focusing more marketing efforts to less profirtable stores.
+
+We also drilled down to compare the total sales for each product id within each store id. This can help to inform decisions about potentially limited or increasing inventory for specific products at specific store locations.
+
 Section 2. Data Source
-What information did you start with (prepared data, data warehouse, or pre-computed cube)?
-Clearly indicate which columns of which tables were used.
+A data cube was created with the following columns:
+
+DayOfWeek,store_id,store_name,region,product_id,sale_amount_sum,sale_amount_mean,transaction_id_count,transaction_ids
+
 Section 3. Tools
 Tell us what tools you used and why.
 Section 4. Workflow & Logic
 Describe the dimensions and aggregations - the logic needed for your analysis
 If using a graphical tool like Power BI or Tableau Prep, use screenshots to show your work.
 Section 5. Results
-Present your insights with narrative and visualizations.
-Explain any suggested actions based on the results you uncovered.
+![Sales by Store ID](data\results\sales_by_store_id.png)
+![Sales by Store ID2](data\results\sales_by_store_pie_chart.png)
+![Sales by Store and Product](data\results\sales_by_store_and_product.png)
+![Products by Store ID 401](data\results\product_sales_store_401.png)
+![Products by Store ID 402](data\results\product_sales_store_402.png)
+![Products by Store ID 403](data\results\product_sales_store_403.png)
+![Products by Store ID 404](data\results\product_sales_store_404.png)
+![Top 10 Products by store](data/results/sales_heatmap_limited.png)
+
 Section 6: Suggested Business Action
 What actions are recommended based on your work
+
 Section 7. Challenges
-Mention any challenges you encountered and how they were resolved.
+The biggest challenge came from my heatmap visal. Originally I chose to compare the totals sales for each store by the day of the week but due to the issue with my sales_date data all being the same day the visual wouldn't be of much use in aiding business decisions.
+
+I updated the heatmap to compare each product ids total sales for each store in a heat map. The number of products made the heatmap too condensed to be legible so I had to go back and limit the number of products pulled in the visual to the top 10.

@@ -232,6 +232,45 @@ def visualize_sales_by_store_and_product(cube_df: pd.DataFrame) -> None:
         raise
 
 
+def visualize_product_sales_for_all_stores(cube_df: pd.DataFrame) -> None:
+    """Generate bar charts comparing total sales for each product in every store."""
+    try:
+        # Get all unique store IDs
+        store_ids = cube_df["store_id"].unique()
+
+        for store_id in store_ids:
+            # Filter data for the current store
+            store_data = cube_df[cube_df["store_id"] == store_id]
+
+            # Aggregate sales by product_id
+            product_sales = store_data.groupby("product_id")["sale_amount_sum"].sum().reset_index()
+            product_sales.sort_values(by="sale_amount_sum", ascending=False, inplace=True)
+
+            # Plot bar chart
+            plt.figure(figsize=(10, 6))
+            plt.bar(
+                product_sales["product_id"].astype(str),
+                product_sales["sale_amount_sum"],
+                color="orange",
+            )
+            plt.title(f"Total Sales by Product for Store {store_id}", fontsize=16)
+            plt.xlabel("Product ID", fontsize=12)
+            plt.ylabel("Total Sales (USD)", fontsize=12)
+            plt.xticks(rotation=45)
+            plt.tight_layout()
+
+            # Save chart for this store
+            output_path = RESULTS_OUTPUT_DIR.joinpath(f"product_sales_store_{store_id}.png")
+            plt.savefig(output_path)
+            logger.info(f"Product sales chart for store {store_id} saved to {output_path}.")
+            plt.close()  # Close figure to avoid memory issues
+
+        logger.info(f"Charts generated for all {len(store_ids)} stores.")
+    except Exception as e:
+        logger.error(f"Error generating charts for all stores: {e}")
+        raise
+
+
 def main():
     logger.info("Starting SALES_LOW_REVENUE_StoreID analysis...")
 
@@ -250,6 +289,7 @@ def main():
     visualize_sales_pie_chart(sales_by_store)
     visualize_sales_heatmap_limited(cube_df)
     visualize_sales_by_store_and_product(cube_df)
+    visualize_product_sales_for_all_stores(cube_df)
 
     logger.info("Analysis and visualization completed successfully.")
 
