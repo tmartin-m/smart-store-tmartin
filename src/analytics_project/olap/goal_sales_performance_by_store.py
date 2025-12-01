@@ -160,29 +160,75 @@ def visualize_sales_pie_chart(sales_by_store: pd.DataFrame) -> None:
         raise
 
 
-def visualize_sales_heatmap(cube_df: pd.DataFrame) -> None:
-    """Visualize sales by store and day of week as a heatmap."""
+def visualize_sales_heatmap_limited(cube_df: pd.DataFrame, top_n: int = 10) -> None:
+    """Heatmap: Sales by store and day of week, limited to top N products."""
     try:
-        # Pivot the cube for heatmap
-        pivot_df = cube_df.pivot_table(
+        # Calculate total sales per product
+        top_products = (
+            cube_df.groupby("product_id")["sale_amount_sum"]
+            .sum()
+            .sort_values(ascending=False)
+            .head(top_n)
+            .index
+        )
+
+        # Filter cube to only include top N products
+        filtered_df = cube_df[cube_df["product_id"].isin(top_products)]
+
+        # Pivot for heatmap (Store vs Product)
+        pivot_df = filtered_df.pivot_table(
             values="sale_amount_sum",
-            index="store_id",  # or store_name for readability
-            columns="DayOfWeek",
+            index="store_id",
+            columns="product_id",
             aggfunc="sum",
             fill_value=0,
         )
 
-        plt.figure(figsize=(10, 6))
+        # Plot heatmap
+        plt.figure(figsize=(12, 6))
         sns.heatmap(pivot_df, cmap="Blues", annot=True, fmt=".0f")
-        plt.title("Sales Heatmap by Store and Day of Week", fontsize=16)
-        plt.xlabel("Day of Week")
+        plt.title(f"Sales Heatmap by Store and Top {top_n} Products", fontsize=16)
+        plt.xlabel("Product ID")
         plt.ylabel("Store ID")
-        output_path = RESULTS_OUTPUT_DIR.joinpath("sales_heatmap.png")
+
+        output_path = RESULTS_OUTPUT_DIR.joinpath("sales_heatmap_limited.png")
         plt.savefig(output_path)
-        logger.info(f"Heatmap saved to {output_path}.")
+        logger.info(f"Limited heatmap saved to {output_path}.")
         plt.show()
     except Exception as e:
-        logger.error(f"Error creating heatmap: {e}")
+        logger.error(f"Error creating limited heatmap: {e}")
+        raise
+
+
+def visualize_sales_by_store_and_product(cube_df: pd.DataFrame) -> None:
+    """Visualize total sales grouped by store_id and product_id."""
+    try:
+        # Aggregate sales by store and product
+        sales_store_product = (
+            cube_df.groupby(["store_id", "product_id"])["sale_amount_sum"].sum().reset_index()
+        )
+
+        # Pivot for visualization (store_id as rows, product_id as columns)
+        pivot_df = sales_store_product.pivot(
+            index="store_id", columns="product_id", values="sale_amount_sum"
+        ).fillna(0)
+
+        # Plot grouped bar chart
+        pivot_df.plot(kind="bar", figsize=(12, 6))
+        plt.title("Total Sales by Store and Product", fontsize=16)
+        plt.xlabel("Store ID", fontsize=12)
+        plt.ylabel("Total Sales (USD)", fontsize=12)
+        plt.xticks(rotation=45)
+        plt.legend(title="Product ID")
+        plt.tight_layout()
+
+        # Save the visualization
+        output_path = RESULTS_OUTPUT_DIR.joinpath("sales_by_store_and_product.png")
+        plt.savefig(output_path)
+        logger.info(f"Store vs Product sales chart saved to {output_path}.")
+        plt.show()
+    except Exception as e:
+        logger.error(f"Error creating store vs product sales visualization: {e}")
         raise
 
 
@@ -200,9 +246,10 @@ def main():
     logger.info(f"Least profitable store: {least_profitable_store}")
 
     # Step 4: Visualizations
-    visualize_sales_by_store(sales_by_store)  # Existing bar chart
-    visualize_sales_pie_chart(sales_by_store)  # ✅ New pie chart
-    visualize_sales_heatmap(cube_df)  # ✅ New heatmap
+    visualize_sales_by_store(sales_by_store)
+    visualize_sales_pie_chart(sales_by_store)
+    visualize_sales_heatmap_limited(cube_df)
+    visualize_sales_by_store_and_product(cube_df)
 
     logger.info("Analysis and visualization completed successfully.")
 
