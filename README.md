@@ -409,10 +409,12 @@ Section 5. Results
 
 ![Top 10 Products by store](data/results/sales_heatmap_limited.png)
 
-Section 6: Suggested Business Action
-What actions are recommended based on your work
+### Section 6: Suggested Business Action
+- Store ID 403 grossed the lowest total sales, so a targeted sales campaign could be ran to in either Electronics or Office to potentially increase sales traffic since those were 2 of their highest grossing products.
+- Store ID 401 and 402 grossed very similar totals sales and they are in similar Urban regions, while 403 grossed the lowest in a Suburban area and 404 grossed the highest in a rural area. This could aid in choosing the next region for expanding with new stores.
+-Each store has about 5 product ids that sold significantly more than all the others. Specific sales campaigns could be crafted for those product categories to encourage more sales traffic or the bottom 10-15 products inventory could be limited to reduce overhead costs.
 
-Section 7. Challenges
+### Section 7. Challenges
 The biggest challenge came from my heatmap visal. Originally I chose to compare the totals sales for each store by the day of the week but due to the issue with my sales_date data all being the same day the visual wouldn't be of much use in aiding business decisions.
 
 I updated the heatmap to compare each product ids total sales for each store in a heat map. The number of products made the heatmap too condensed to be legible so I had to go back and limit the number of products pulled in the visual to the top 10.
