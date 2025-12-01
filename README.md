@@ -383,15 +383,43 @@ Analyze sales data to identify trends and optimize resource allocation by compar
 We also drilled down to compare the total sales for each product id within each store id. This can help to inform decisions about potentially limited or increasing inventory for specific products at specific store locations.
 
 ### Section 2. Data Source
-A data cube was created with the following columns:
+A new dimension table was created, stores_prepared.csv including the following columns:
+StoreID,StoreName,City,State,LocationType,Region. StoreID was also added as a foreign key to the Sales Facts table.
 
+A data cube was created for analysis with the following columns:
 DayOfWeek,store_id,store_name,region,product_id,sale_amount_sum,sale_amount_mean,transaction_id_count,transaction_ids
 
-Section 3. Tools
-Tell us what tools you used and why.
-Section 4. Workflow & Logic
-Describe the dimensions and aggregations - the logic needed for your analysis
-If using a graphical tool like Power BI or Tableau Prep, use screenshots to show your work.
+### Section 3. Tools
+- All work was completed in VSCode. 2 python files were compiled one for cubing and one for analysis.
+- Within those files the following were used or highlighted:
+- Pandas groupby for aggregation
+- Matplotlib and Seaborn for visualizations
+- Dynamic filtering for heatmaps
+- Automates chart generation for all stores to avoid manual repetition
+
+### Section 4. Workflow & Logic
+1. Setup and Paths
+   1. Define project directories for data, warehouse, OLAP outputs, and results.
+   2. Ensure output folders exist for saving charts and reports.
+2. Load OLAP Cube
+   1. Reads the precomputed cube from multidimensional_olap_cube_by_store.csv into a Pandas DataFrame.
+   2. This cube contains aggregated metrics like sale_amount_sum, sale_amount_mean, and transaction counts grouped by dimensions (store, product, day).
+3. Analyze Sales by Store
+   1. Groups data by store_id.
+   2. Calculates total sales (sale_amount_sum) for each store.
+   3. Sorts stores by total sales for ranking.
+4. Identify Least Profitable Store
+   1. Picks the store with the lowest total revenue from the aggregated DataFrame.
+   2. Logs this information for business decisions (e.g., reduce operating hours or adjust marketing)
+5. Visualizations
+   1. Bar Chart: Total sales by store.
+   2. Pie Chart: Revenue share by store.
+   3.  Heatmap: Sales by store and top N products (pivoted for visual clarity).
+   4.  Grouped Bar Chart: Store vs Product sales comparison.
+   5.  Per-Store Product Charts: Generates individual bar charts for each store showing product-level sales.
+6.  Save Outputs
+    1.  All charts are saved in the results directory for reporting and presentation.
+
 ### Section 5. Results
 ![Sales by Store ID](sales_by_store_id.png)
 
@@ -412,9 +440,11 @@ If using a graphical tool like Power BI or Tableau Prep, use screenshots to show
 ### Section 6: Suggested Business Action
 - Store ID 403 grossed the lowest total sales, so a targeted sales campaign could be ran to in either Electronics or Office to potentially increase sales traffic since those were 2 of their highest grossing products.
 - Store ID 401 and 402 grossed very similar totals sales and they are in similar Urban regions, while 403 grossed the lowest in a Suburban area and 404 grossed the highest in a rural area. This could aid in choosing the next region for expanding with new stores.
--Each store has about 5 product ids that sold significantly more than all the others. Specific sales campaigns could be crafted for those product categories to encourage more sales traffic or the bottom 10-15 products inventory could be limited to reduce overhead costs.
+- Each store has about 5 product ids that sold significantly more than all the others. Specific sales campaigns could be crafted for those product categories to encourage more sales traffic or the bottom 10-15 products inventory could be limited to reduce overhead costs.
 
 ### Section 7. Challenges
 The biggest challenge came from my heatmap visal. Originally I chose to compare the totals sales for each store by the day of the week but due to the issue with my sales_date data all being the same day the visual wouldn't be of much use in aiding business decisions.
 
 I updated the heatmap to compare each product ids total sales for each store in a heat map. The number of products made the heatmap too condensed to be legible so I had to go back and limit the number of products pulled in the visual to the top 10.
+
+I ran into challenges including my visuals in my README.md using the relative pathways in the Results folder so I have to move them to my main folder for my project.
