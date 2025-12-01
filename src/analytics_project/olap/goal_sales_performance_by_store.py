@@ -29,6 +29,8 @@ import pandas as pd
 
 from analytics_project.utils_logger import logger
 
+import seaborn as sns
+
 # Global constants for paths and key directories
 
 THIS_DIR: pathlib.Path = pathlib.Path(__file__).resolve().parent
@@ -137,8 +139,54 @@ def visualize_sales_by_store(sales_by_store: pd.DataFrame) -> None:
         raise
 
 
+def visualize_sales_pie_chart(sales_by_store: pd.DataFrame) -> None:
+    """Visualize revenue share by store as a pie chart."""
+    try:
+        plt.figure(figsize=(8, 8))
+        plt.pie(
+            sales_by_store["TotalSales"],
+            labels=sales_by_store["store_id"],
+            autopct="%1.1f%%",
+            startangle=140,
+            colors=plt.cm.Paired.colors,
+        )
+        plt.title("Revenue Share by Store", fontsize=16)
+        output_path = RESULTS_OUTPUT_DIR.joinpath("sales_by_store_pie_chart.png")
+        plt.savefig(output_path)
+        logger.info(f"Pie chart saved to {output_path}.")
+        plt.show()
+    except Exception as e:
+        logger.error(f"Error creating pie chart: {e}")
+        raise
+
+
+def visualize_sales_heatmap(cube_df: pd.DataFrame) -> None:
+    """Visualize sales by store and day of week as a heatmap."""
+    try:
+        # Pivot the cube for heatmap
+        pivot_df = cube_df.pivot_table(
+            values="sale_amount_sum",
+            index="store_id",  # or store_name for readability
+            columns="DayOfWeek",
+            aggfunc="sum",
+            fill_value=0,
+        )
+
+        plt.figure(figsize=(10, 6))
+        sns.heatmap(pivot_df, cmap="Blues", annot=True, fmt=".0f")
+        plt.title("Sales Heatmap by Store and Day of Week", fontsize=16)
+        plt.xlabel("Day of Week")
+        plt.ylabel("Store ID")
+        output_path = RESULTS_OUTPUT_DIR.joinpath("sales_heatmap.png")
+        plt.savefig(output_path)
+        logger.info(f"Heatmap saved to {output_path}.")
+        plt.show()
+    except Exception as e:
+        logger.error(f"Error creating heatmap: {e}")
+        raise
+
+
 def main():
-    """Analyze and visualize sales data."""
     logger.info("Starting SALES_LOW_REVENUE_StoreID analysis...")
 
     # Step 1: Load the precomputed OLAP cube
@@ -150,10 +198,12 @@ def main():
     # Step 3: Identify the least profitable store
     least_profitable_store = identify_least_profitable_store(sales_by_store)
     logger.info(f"Least profitable store: {least_profitable_store}")
-    logger.info("Close the Figure to complete this script.")
 
-    # Step 4: Visualize total sales by DayOfWeek
-    visualize_sales_by_store(sales_by_store)
+    # Step 4: Visualizations
+    visualize_sales_by_store(sales_by_store)  # Existing bar chart
+    visualize_sales_pie_chart(sales_by_store)  # ✅ New pie chart
+    visualize_sales_heatmap(cube_df)  # ✅ New heatmap
+
     logger.info("Analysis and visualization completed successfully.")
 
 
