@@ -484,18 +484,68 @@ Friday,1.0,2022.0,401,2007,1162,Gold,3,Mobile Payment,583.39,583.39,1.08,1.08,1.
   - Customer Logger for process tracking
 -
 ### Section 4. Workflow & Logic
+
+1. Setup and Paths
+   1. Define project directories for data, warehouse, OLAP outputs, and results.
+   2. Ensure output folders exist for saving charts and reports.
+2. Load OLAP Cube
+   1. Reads the precomputed cube from multidimensional_olap_cube_by_customer.csv into a Pandas DataFrame.
+   2. This cube contains aggregated metrics like sale_amount sum and mean; discount percentage mean, max and min; and points mean grouped by dimensions (status, store and day).
+3. Analyze Sales by Status
+   1. Groups data by status.
+   2. Calculates total sales (sale_amount_sum) for each customer status.
+   3. Sorts stauts by total sales for ranking.
+4. Identify Least Profitable Customer Status
+   1. Picks the status with the lowest total revenue from the aggregated DataFrame.
+   2. Logs this information for business decisions (e.g., reduce operating hours or adjust marketing)
+5. Visualizations
+   1. Bar Chart: Total sales by status.
+   2. Pie Chart: Revenue share by status.
+   3.  Heatmap: Sales by store and customer status.
+   4.  Grouped Bar Chart: Store vs Status sales comparison.
+   5.  Per-Store Status Charts: Generates individual bar charts for each store showing customer-level sales.
+6.  Save Outputs
+    1.  All charts are saved in the results directory for reporting and presentation.
+
 ### Section 5. Results (narrative + visualizations)
 
 ![Sales by Customer Status](sales_by_customer_status.png)
+
+Before producing the visualization it would be safe to assume that the higher the customer status the more revenue that status would bring in for stores.
+
+After reviewing the visualization it appears the bronze, silver and gold categories follow that assumption, but the higher status category of Platinum did not follow being the second to lowest grossing category.
+
 ![Sales by Status-Pie Chart](sales_by_status_pie_chart.png)
+
+Pie chart is used to better visualize how the sales from each of the 4 customer status categories make up the total sales across all stores.
+
 ![Sales by Store and Status](sales_status_heatmap.png)
-![Sales by Status by Week Day](sales_status_day_heatmap.png)
+
+The heatmap allows us to compare the sales by the customer status and by the store ids. From this visual we are able to see that each stores categories produced very similar results. Bronze grossing the lowest, then platnium, followed by silver and finally gold grossing the highest sales.
+
 ![Sales by Store and Status](sales_by_store_and_customer_status.png)
+
+The stacked bar chart helps to better visualize what the insights we drew from the first heatmap. Each stores customer statuses grossed sales in a similar fashion: bronze, platinum, silver and gold.
+
+The following 4 bar charts are drilldowns to look at the individual sales grossed by each store broken out by customer status.
+
 ![Sales by Store 401](status_sales_store_401.png)
 ![Sales by Store 402](status_sales_store_402.png)
 ![Sales by Store 403](status_sales_store_403.png)
 ![Sales by Store 404](status_sales_store_404.png)
 
 ### Section 6. Suggested Business Action
+
+Based on all of the visuals I would recommend dropping the 4th status tier of platinum. Silver and Gold far surpassed the sales in Platinum.
+
+I would also recommend focusing marketing campaigns specifically to the bronze and silver status customers to aid in bringing them to the next status, and setting up a rewards program that benefits the gold tier like potential coupons or discounts or special shopping hours. This would also in turn be an incentive to bring the silver status customers up to gold.
+
 ### Section 7. Challenges
+
+My biggest challenge came from data quality. There were several bronze data points that were misspelled that needed manual correction as to not skew the visualizations. Due to the issue with the sales date I attempted to use the join_date to help draw insights only to realize the heatmap aided in no way in forming in clear conclusions from the data. I would have needed corrected sales_date data to draw any conclusions about spending patterns amoung the customer statuses.
+
 ### Section 8. Ethical Considerations
+
+The biggest ethical consideration I believe would be bias avoidance on making business decisions based solely on customer status. Decisions should be made to improve the service for all statuses not just the status bringing in the most revenue.
+
+It may also be safer to limit the purpose of the analysis. Originally some of the potential insights I had thought we could draw like reducing store hours/resources based on sales by day of the week would need more investigation into the larger communtiy impacts before a final decision should be made.
