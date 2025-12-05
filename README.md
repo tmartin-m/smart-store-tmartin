@@ -448,3 +448,54 @@ The biggest challenge came from my heatmap visal. Originally I chose to compare 
 I updated the heatmap to compare each product ids total sales for each store in a heat map. The number of products made the heatmap too condensed to be legible so I had to go back and limit the number of products pulled in the visual to the top 10.
 
 I ran into challenges including my visuals in my README.md using the relative pathways in the Results folder so I have to move them to my main folder for my project.
+
+## Module 7 - Custom BI Project
+Goals:
+1. Design and implement a custom BI project to answer a defined business question.
+2. Evaluate the ethical implications of using AI and automated decision-making in BI.
+3. Present clear, actionable insights through effective visualizations and narratives.
+4. Document your process and explain key challenges and decisions.
+
+Workflow:
+### Section 1. The Business Goal
+
+The primary business goal is to analyze sales performance by customer status. This analysis will help to identify potential sales trends, aid in future marketing campaigns, enforce potential opertaional hours changing or help decide on possible additional training for stores.
+
+### Section 2. Data Source
+
+The data source was a precomputed OLAP cube stored as a csv file "multidimensional_olap_cube_by_customer.csv." The cube merged columns from my sales fact table and customers dimension table. The dimensions and metrics are listed below:
+
+dimensions = ["DayOfWeek", "Month", "Year", "store_id", "product_id", "customer_id", "status", "campaign_id", "payment_method"]
+metrics = {"sale_amount": ["sum", "mean"], "discount_percentage": ["mean", "max", "min"], "points": "mean"}
+
+Example data from cube:
+Friday,1.0,2022.0,401,2007,1162,Gold,3,Mobile Payment,583.39,583.39,1.08,1.08,1.08,6423.0,[857]
+
+### Section 3. Tools Used
+
+ All work was completed in VSCode. 2 python files were compiled; one for cubing and one for analysis.
+
+- Within those files the following were used or highlighted:
+  - Pandas groupby for aggregation
+  - Matplotlib and Seaborn for visualizations
+  - Dynamic filtering for heatmaps
+  - Automated chart generation for all stores to avoid manual repetition
+  - SQLite database for raw data and CSV for the cube
+  - Customer Logger for process tracking
+-
+### Section 4. Workflow & Logic
+### Section 5. Results (narrative + visualizations)
+
+![Sales by Customer Status](sales_by_customer_status.png)
+![Sales by Status-Pie Chart](sales_by_status_pie_chart.png)
+![Sales by Store and Status](sales_status_heatmap.png)
+![Sales by Status by Week Day](sales_status_day_heatmap.png)
+![Sales by Store and Status](sales_by_store_and_customer_status.png)
+![Sales by Store 401](status_sales_store_401.png)
+![Sales by Store 402](status_sales_store_402.png)
+![Sales by Store 403](status_sales_store_403.png)
+![Sales by Store 404](status_sales_store_404.png)
+
+### Section 6. Suggested Business Action
+### Section 7. Challenges
+### Section 8. Ethical Considerations

@@ -152,6 +152,49 @@ def visualize_sales_heatmap(cube_df: pd.DataFrame) -> None:
         raise
 
 
+def visualize_sales_heatmap_by_status_and_day(cube_df: pd.DataFrame) -> None:
+    """Heatmap: Sales by customer status and day of week."""
+    try:
+        # Pivot for heatmap (Status vs DayOfWeek)
+        pivot_df = cube_df.pivot_table(
+            values="sale_amount_sum",
+            index="status",
+            columns="DayOfWeek",  # Ensure this column exists in your OLAP cube
+            aggfunc="sum",
+            fill_value=0,
+        )
+
+        # Sort columns by weekday order if needed
+        weekday_order = [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday",
+        ]
+        pivot_df = pivot_df.reindex(
+            columns=[day for day in weekday_order if day in pivot_df.columns]
+        )
+
+        # Plot heatmap
+        plt.figure(figsize=(12, 6))
+        sns.heatmap(pivot_df, cmap="Blues", annot=True, fmt=".0f")
+        plt.title("Sales Heatmap by Customer Status and Day of Week", fontsize=16)
+        plt.xlabel("Day of Week")
+        plt.ylabel("Customer Status")
+
+        # Save the visualization
+        output_path = RESULTS_OUTPUT_DIR.joinpath("sales_status_day_heatmap.png")
+        plt.savefig(output_path)
+        logger.info(f"Heatmap saved to {output_path}.")
+        plt.show()
+    except Exception as e:
+        logger.error(f"Error creating heatmap by status and day: {e}")
+        raise
+
+
 def visualize_sales_by_store_and_customer_status(cube_df: pd.DataFrame) -> None:
     """Visualize total sales grouped by store_id and status."""
     try:
@@ -222,6 +265,7 @@ def main():
     visualize_sales_by_customer_status(sales_by_customer_status)
     visualize_sales_pie_chart(sales_by_customer_status)
     visualize_sales_heatmap(cube_df)
+    visualize_sales_heatmap_by_status_and_day(cube_df)
     visualize_sales_by_store_and_customer_status(cube_df)
     visualize_sales_by_status_for_all_stores(cube_df)
     logger.info("Analysis and visualization completed successfully.")
